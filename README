@@ -1,5 +1,9 @@
+This is a plug-in for the Lithium php framework.
+
+It will append to your pages the execution time needed to display that page and the queries that were executed on your database.
+
 TODO:
-- List of queries
+- List of queries (SQL, Mongo)
 - Display execution speed
 - Display header
 - Display template vars
