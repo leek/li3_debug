@@ -27,12 +27,18 @@ function li3_debug_exit() {
 	?>
 	<hr/>
 	<div>
-		<span>Temps d'exécution: <?= round(microtime(true) - $APP_START_TIME, 4) ?> secondes.</span>
+		<h4>Temps d'exécution</h4>
+		<p><?= round(microtime(true) - $APP_START_TIME, 4) ?> secondes.</p>
+
+		<h4>Requêtes SQL</h4>
 		<ul>
 			<?php foreach ($SQL as $query) : ?>
 				<li><?= $query ?></li>
 			<?php endforeach; ?>
 		</ul>
+
+		<h4>Session</h4>
+		<pre><?= print_r($_SESSION) ?></pre>
 	</div>
 	<?php
 }
