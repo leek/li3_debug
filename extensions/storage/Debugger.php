@@ -71,7 +71,9 @@ class Debugger extends \lithium\core\StaticObject
     {
         Media::applyFilter('_handle', function ($self, $params, $chain) {
             Debugger::setResponse($params['response']);
-            Debugger::setView($self, $params['handler'], $params['response']);
+            if ($params['handler']['type'] === 'html') {
+                Debugger::setView($self, $params['handler'], $params['response']);
+            }
             return $chain->next($self, $params, $chain);
         });
     }
