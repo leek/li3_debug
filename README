@@ -1,9 +1,17 @@
-This is a plug-in for the Lithium php framework.
+## Installation
 
-It will append to your pages the execution time needed to display that page and the queries that were executed on your database.
-Ajax calls are appended to the log.
-You can filter the log.
+Add `li3_debug` to `Libraries`:
 
-TODO:
-- Display template vars
-- Detail a bit more the readme :)
+```php
+<?php
+
+// app/config/bootstrap/libraries.php
+
+// ... snip ...
+
+use lithium\core\Environment;
+
+if (!Environment::is('production')) {
+    Libraries::add('li3_debug');
+}
+```
