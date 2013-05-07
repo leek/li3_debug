@@ -1,10 +1,10 @@
 # li3_debug
 
-A port of Symfony2's debug menu to lithium. Thanks to @marcghorayeb for a great starting point.
+A port of [Symfony2](http://symfony.com)'s debug menu to [Lithium](http://lithify.me). Thanks to [@marcghorayeb](https://github.com/marcghorayeb) for a great starting point.
 
 Here is a screenshot of what it looks like with the **Timer** panel open:
 
-![Timer Panel](http://i.imgur.com/Mzcmg8Kl.jpg)
+[![Timer Panel](http://i.imgur.com/Mzcmg8Kl.jpg)](http://i.imgur.com/Mzcmg8Kl.jpg)
 
 ## Installation
 
