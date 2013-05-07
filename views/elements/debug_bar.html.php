@@ -176,6 +176,35 @@
             </div>
         </div>
     </div>
+    <?php if ($this->debugBar->get('exception')): ?>
+        <!-- Exception -->
+        <div class="sf-toolbar-block">
+            <div class="sf-toolbar-icon">
+                <a href="#">
+                    <img width="15" height="28" alt="Logs" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAA4klEQVQ4y2P4//8/AyWYYXgYwOPp6Xnc3t7+P7EYpB6k7+zZs2ADNEjRjIwDAgKWgAywIUfz8+fPVzg7O/8AGeCATQEQnAfi/SAah/wcV1dXvAYUgORANA75ehcXl+/4DHAABRIe+ZrhbgAhTHsDiEgHBA0glA6GfSDiw5mZma+A+sphBlhVVFQ88vHx+Xfu3Ll7QP5haOjjwtuAuGHv3r3NIMNABqh8+/atsaur666vr+9XUlwSHx//AGQANxCbAnEWyGQicRMQ9wBxIQM0qjiBWAFqkB00/glhayBWHwb1AgB38EJsUtxtWwAAAABJRU5ErkJggg==">
+                    <span class="sf-toolbar-status sf-toolbar-status-red"><strong>!</strong></span>
+                </a>
+            </div>
+            <div class="sf-toolbar-info">
+                <div class="sf-toolbar-info-piece">
+                    <b>Code</b>
+                    <span class="sf-toolbar-status">
+                        <?php echo $this->debugBar->get('exception.code'); ?>
+                    </span>
+                </div>
+                <div class="sf-toolbar-info-piece">
+                    <b>Message</b>
+                    <span class="sf-toolbar-status sf-toolbar-status-red">
+                        <?php echo $this->debugBar->get('exception.message'); ?>
+                    </span>
+                </div>
+                <div class="sf-toolbar-info-piece">
+                    <b>Trace</b>
+                    <span><?php echo $this->debugBar->get('exception.line') . ':' . $this->debugBar->get('exception.file'); ?></span>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
     <!-- Memory -->
     <div class="sf-toolbar-block">
         <div class="sf-toolbar-icon">
