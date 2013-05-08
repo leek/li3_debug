@@ -1,0 +1,17 @@
+{
+    "name": "servicerunner/li3_debug",
+    "type": "lithium-library",
+    "description": "Symfony2 Debug Bar ported to Lithium",
+    "keywords": ["debug", "debugbar", "li3", "lithium"],
+    "homepage": "https://github.com/ServiceRunner/li3_debug",
+    "authors": [
+        {
+            "name": "Chris Jones",
+            "email": "leeked@gmail.com",
+            "homepage": "https://github.com/leek"
+        }
+    ],
+    "require": {
+        "composer/installers": "*"
+    }
+}
