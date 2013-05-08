@@ -21,3 +21,8 @@ if (!Environment::is('production')) {
     Libraries::add('li3_debug');
 }
 ```
+
+## ToDo
+
+* Use [li3_profiler](https://github.com/joebeeson/li3_profiler) for Timer panel
+* Look for enhancements that could be <del>stolen</del> borrowed from [li3_perf](https://github.com/tmaiaroto/li3_perf)

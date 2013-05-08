@@ -195,7 +195,7 @@ class Debugger extends \lithium\core\StaticObject
                 $data            = array();
                 $data['start']   = microtime(true);
                 $data['memory']  = memory_get_usage(true);
-                $data['name']    = '[DB] ' . $options['model'] . '->' . $options['type'];
+                $data['name']    = '[DB] ' . $options['model'] . (isset($options['type']) ? "->{$options['type']}" : '');
                 if ($result = $chain->next($self, $params, $chain)) {
                     $data['name'] .= ' (' . count($result) . ')';
                 } else {
