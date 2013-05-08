@@ -228,9 +228,9 @@
                 <span class="sf-toolbar-status sf-toolbar-status-<?php echo $this->debugBar->get('auth') ? 'green' : 'red'; ?>"><?php echo $this->debugBar->get('auth.id'); ?></span>
             </a>
         </div>
-        <div class="sf-toolbar-info">
+        <div class="sf-toolbar-info" style="min-width:400px">
             <?php if ($this->debugBar->get('auth')): ?>
-                <code style="font-size:10px"><?php print_r($this->debugBar->get('auth.data')); ?></code>
+                <pre style="font-size:10px; line-height:12px"><?php print_r($this->debugBar->get('auth.data')); ?></pre>
             <?php else: ?>
                 You are not authenticated.
             <?php endif; ?>

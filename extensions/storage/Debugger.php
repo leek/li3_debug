@@ -16,6 +16,9 @@ use lithium\util\collection\Filters;
 
 class Debugger extends \lithium\core\StaticObject
 {
+    /**
+     * @var string
+     */
     public static $previousHandlers = array();
 
     /**
@@ -32,6 +35,9 @@ class Debugger extends \lithium\core\StaticObject
      */
     protected static $_config = array();
 
+    /**
+     * @var \lithium\template\View
+     */
     protected static $_view;
 
     /**
@@ -297,14 +303,15 @@ class Debugger extends \lithium\core\StaticObject
             return $result;
         });
 
-        // $controller->applyFilter('redirect', function($self, $params, $chain) use ($options) {
+        $controller->applyFilter('redirect', function($self, $params, $chain) use ($options) {
+            // d($params);
             // $options =& $params['options'];
-        //     if (isset($params['options']['message'])) {
-        //         DebugBar::write($params['options']['message']);
-        //         unset($params['options']['message']);
-        //     }
-        //     return $chain->next($self, $params, $chain);
-        // });
+            // if (isset($params['options']['message'])) {
+            //     DebugBar::write($params['options']['message']);
+            //     unset($params['options']['message']);
+            // }
+            return $chain->next($self, $params, $chain);
+        });
 
         return $controller;
     }
