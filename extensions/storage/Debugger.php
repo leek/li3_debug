@@ -92,7 +92,7 @@ class Debugger extends \lithium\core\StaticObject
         static::$_data['memory.end']   = memory_get_usage(true);
         static::$_data['memory.usage'] = memory_get_peak_usage(true);
 
-        if (static::$_view) {
+        if (!Environment::is('production') && static::$_view) {
             try {
                 echo static::$_view->render(array('element' => 'debug_bar'));
             } catch (\lithium\template\TemplateException $e) {
