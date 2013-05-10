@@ -1,5 +1,8 @@
 <?php
 
+use lithium\core\Environment;
 use li3_debug\extensions\storage\Debugger;
 
-Debugger::init();
+if (Environment::is('production') === false) {
+    Debugger::init();
+}
