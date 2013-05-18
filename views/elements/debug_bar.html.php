@@ -241,23 +241,104 @@
         <div class="sf-toolbar-icon">
             <a href="#">
                 <img width="20" height="28" alt="Database" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQRJREFUeNpi/P//PwM1ARMDlcGogZQDlpMnT7pxc3NbA9nhQKxOpL5rQLwJiPeBsI6Ozl+YBOOOHTv+AOllQNwtLS39F2owKYZ/gRq8G4i3ggxEToggWzvc3d2Pk+1lNL4fFAs6ODi8JzdS7mMRVyDVoAMHDsANdAPiOCC+jCQvQKqBQB/BDbwBxK5AHA3E/kB8nKJkA8TMQBwLxaBIKQbi70AvTADSBiSadwFXpCikpKQU8PDwkGTaly9fHFigkaKIJid4584dkiMFFI6jkTJII0WVmpHCAixZQEXWYhDeuXMnyLsVlEQKI45qFBQZ8eRECi4DBaAlDqle/8A48ip6gAADANdQY88Uc0oGAAAAAElFTkSuQmCC">
-                <span class="sf-toolbar-status"><?php echo $this->debugBar->get('db.count'); ?></span>
+                <?php
+                
+                $invalid = $this->debugBar->get('db.invalid');
+                $valid = $this->debugBar->get('db.count');
+                
+                ?>
+                <span class="sf-toolbar-status sf-toolbar-status-green">
+                    <?= $valid ?>
+                </span>
+                </span>
+                <?php if ($invalid > 0) {
+                    $valid -= $invalid;
+                ?>
+                <span class="sf-toolbar-status sf-toolbar-status-red">
+                    <?= $invalid ?>
+                </span>
+                <?php } ?>
+                <span style='margin-left:3px'>
+                    <?php echo round($this->debugBar->get('db.time'), 3); ?> s
+                </span>
             </a>
         </div>
-        <div class="sf-toolbar-info">
+        <div class="sf-toolbar-info" style="height:500px;overflow:scroll">
             <div class="sf-toolbar-info-piece">
-                <b>DB Queries</b>
-                <span><?php echo $this->debugBar->get('db.count'); ?></span>
-            </div>
-            <div class="sf-toolbar-info-piece">
-                <b>Query time</b>
-                <span><?php echo $this->debugBar->get('db.time'); ?> s</span>
-            </div>
-            <div class="sf-toolbar-info-piece">
-                <b>Invalid entities</b>
-                <span class="sf-toolbar-status sf-toolbar-status-<?php echo $this->debugBar->get('db.invalid') == 0 ? 'green' : 'red'; ?>">
-                    <?php echo $this->debugBar->get('db.invalid'); ?>
-                </span>
+                <table width="750">
+                <thead>
+                    <th>namespace</th>
+                    <th>Fields</th>
+                    <th>Conditions</th>
+                    <th>Order</th>
+                    <th>Entities</th>
+                    <th>Limit</th>
+                    <th>Skip</th>
+                    <th>T-millis</th>
+                </thead>
+                <tbody>
+                <?php
+                
+                $queries = $this->debugBar->get('db.queries');
+                
+                foreach($queries as $query) {
+                    foreach ($query as $s) {
+                ?>
+                <tr>
+                    <td>
+                    <?= $s['query']['ns'] ?>
+                    </td>
+                    <td>
+                    <?php
+                        $fields = $s['query']['fields'];
+                        
+                        if (empty($fields)) {
+                            echo '<i>all</i>';
+                        } else {
+                            foreach ($fields as $key => $val) {
+                                echo join(': ', array($key, !empty($val) ? $val : 'null'));
+                                echo "<br>";
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td>
+                    <?php
+                        $conditions = $s['query']['query']['$query'];
+
+                        if (empty($conditions)) {
+                            echo '<i>none</i>';
+                        } else {
+                            foreach ($conditions as $key => $val){
+                                echo join(': ', array($key, !empty($val) ? $val : 'null'));
+                                echo "<br>";
+                            }
+                        }
+                    ?>
+                    </td>
+                    <td>
+                    <?php
+                        $orderby = $s['query']['query']['$orderby'];
+
+                        if (empty($orderby)) {
+                            echo '<i>none</i>';
+                        } else {
+                            foreach ($orderby as $key => $val){
+                                echo join(': ', array($key, !empty($val) ? $val : 'null'));
+                                echo "<br>";
+                            }
+                        }
+                    ?>
+                    </td>
+                    <td style="text-align:center"><?=$s['explain']['n']?></td>
+                    <td style="text-align:center"><?=$s['query']['limit']?></td>
+                    <td style="text-align:center"><?=$s['query']['skip']?></td>
+                    <td style="text-align:center"><?=$s['explain']['millis']?></td>
+                    </tr>
+                    <?php }
+                    } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -542,6 +623,11 @@
     box-sizing: border-box;
     padding: 9px;
     line-height: 19px;
+}
+
+.sf-toolbar-block table td,
+.sf-toolbar-block table th {
+    padding-left:5px;
 }
 
 /*.sf-toolbarreset {

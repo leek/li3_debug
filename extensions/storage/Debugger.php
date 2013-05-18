@@ -57,6 +57,7 @@ class Debugger extends \lithium\core\StaticObject
         'memory.usage'      => 0,
         'db.count'          => 0,
         'db.time'           => 0,
+        'db.queries'        => array(),
         'db.invalid'        => 0,
         'session.started'   => false,
         'auth'              => false,
@@ -184,6 +185,7 @@ class Debugger extends \lithium\core\StaticObject
     public static function initConnections()
     {
         static::$_data['db']         = array();
+        static::$_data['db.queries'] = array();
         static::$_data['db.time']    = 0;
         static::$_data['db.invalid'] = 0;
 
@@ -193,10 +195,17 @@ class Debugger extends \lithium\core\StaticObject
                 $options = $params['options'];
                 $query   = $params['query'];
                 $data            = array();
+                $queries         = array();
                 $data['start']   = microtime(true);
                 $data['memory']  = memory_get_usage(true);
                 $data['name']    = $query->model() . '->' . $query->type();
                 if ($result = $chain->next($self, $params, $chain)) {
+                    if (method_exists($result, 'data')) {
+                        $queries[] = array(
+                            'explain' => $result->result()->resource()->explain(),
+                            'query' => $result->result()->resource()->info()
+                        );
+                    }
                     $data['name'] .= ' (' . count($result) . ')';
                 } else {
                     Debugger::inc('db.invalid', 1);
@@ -207,6 +216,7 @@ class Debugger extends \lithium\core\StaticObject
                 Debugger::push('events', $data);
                 Debugger::inc('events.time', $data['time']);
                 Debugger::push('db', $data);
+                Debugger::push('db.queries', $queries);
                 Debugger::inc('db.time', $data['time']);
                 return $result;
             });
