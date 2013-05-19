@@ -310,6 +310,9 @@
                             echo '<i>none</i>';
                         } else {
                             foreach ($conditions as $key => $val){
+                                if(is_array($val)) {
+                                    $val = join(', <br>', call_user_func_array('array_merge', $val));
+                                }
                                 echo join(': ', array($key, !empty($val) ? $val : 'null'));
                                 echo "<br>";
                             }
