@@ -280,7 +280,7 @@
                 <?php
                 
                 $queries = $this->debugBar->get('db.queries');
-                
+                $countQueries = 1;
                 foreach($queries as $query) {
                     foreach ($query as $s) {
                 ?>
@@ -337,8 +337,31 @@
                     <td style="text-align:center"><?=$s['query']['limit']?></td>
                     <td style="text-align:center"><?=$s['query']['skip']?></td>
                     <td style="text-align:center"><?=$s['explain']['millis']?></td>
+					</tr>
+					<tr><td colspan="8">
+					<a class="slide" href="#" onclick='
+						var element = document.getElementById("explain<?= $countQueries ?>");
+						if (element.style.display == "block") {
+							element.style.display = "none";
+						}
+						else {
+							element.style.display = "block";
+						};'>explain >></a>
+
+					<span id="explain<?= $countQueries ?>" class="explainToggle">
+					<?php
+					
+					$explain = $s['explain'];
+
+					var_dump($explain);
+
+					?>
+					</span>
+					</td>
                     </tr>
-                    <?php }
+                    <?php
+						$countQueries++;
+						}
                     } ?>
                     </tbody>
                 </table>
@@ -631,6 +654,10 @@
 .sf-toolbar-block table td,
 .sf-toolbar-block table th {
     padding-left:5px;
+}
+
+span.explainToggle {
+	display: none;
 }
 
 /*.sf-toolbarreset {
