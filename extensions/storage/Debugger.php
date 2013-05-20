@@ -200,21 +200,21 @@ class Debugger extends \lithium\core\StaticObject
                 $data['memory']  = memory_get_usage(true);
                 $data['name']    = $query->model() . '->' . $query->type();
                 if ($result = $chain->next($self, $params, $chain)) {
-					switch (true) {
-						case method_exists($result, 'data'):
-							$queries[] = array(
-								'explain' => $result->result()->resource()->explain(),
-								'query' => $result->result()->resource()->info()
-							);
-						break;
-						case $query->calculate():
-							$queries[] = array(
-								'explain' => $result->explain(),
-								'query' => $result->info()
-							);
-						break;
-						default:
-					}
+                    switch (true) {
+                        case method_exists($result, 'data'):
+                            $queries[] = array(
+                                'explain' => $result->result()->resource()->explain(),
+                                'query' => $result->result()->resource()->info()
+                            );
+                        break;
+                        case $query->calculate():
+                            $queries[] = array(
+                                'explain' => $result->explain(),
+                                'query' => $result->info()
+                            );
+                        break;
+                        default:
+                    }
                     $data['name'] .= ' (' . count($result) . ')';
                 } else {
                     Debugger::inc('db.invalid', 1);
