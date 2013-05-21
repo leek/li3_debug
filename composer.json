@@ -9,6 +9,10 @@
             "name": "Chris Jones",
             "email": "leeked@gmail.com",
             "homepage": "https://github.com/leek"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/ServiceRunner/li3_debug/contributors"
         }
     ],
     "require": {
