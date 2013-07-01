@@ -280,7 +280,11 @@ class Debugger extends \lithium\core\StaticObject
 
     public static function get($key)
     {
-        return static::$_data[$key];
+        if (isset(static::$_data[$key])) {
+            return static::$_data[$key];
+        }
+
+        return null;
     }
 
     public static function set($key, $value)
