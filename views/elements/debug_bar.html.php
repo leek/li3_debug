@@ -176,12 +176,64 @@
             </div>
         </div>
     </div>
+    <!-- Log -->
+    <div class="sf-toolbar-block">
+        <div class="sf-toolbar-icon">
+            <a href="#">
+                <img width="17" height="28" alt="Logs" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAcCAYAAACH81QkAAAA9klEQVQ4y2P4//8/A6WYYZgZYm9vD8I8QHwAiP+TgP8B8RSYIQJAfBQqcRmI5xCBdwDxV6iebpAh+6CcLUDMCHUZMdgOiN+A9DIgOe8u1EWXCOBdQCwGNWg7zJAvJIYFCO+BGjINZshnMgx5DTWknxJDHkMNmUiqISAvvKTEkC6opnQo/wmphsyAahBCSg54DbkPxAZQjSD+AqhiESA+QWyYHEFKTPFI7AOkBuw2JM3MQLyb3NhZB8QqQLyR0ih+RkQ6mUpJYnsENQSUow+Ta8hbIOaC5mQpkCG/yDDkBtQQeMn2FIg/koBvArEZLAaHY2k/aAwBAP6jtd/ja0xbAAAAAElFTkSuQmCC">
+                <span class="sf-toolbar-status"><strong><?php echo $this->debugBar->get('log.count'); ?></strong></span>
+            </a>
+        </div>
+        <div class="sf-toolbar-info">
+            <div class="sf-toolbar-info-piece">
+                <table width="500" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th width="1">&nbsp;</th>
+                            <th width="1"><b>Priority</b></th>
+                            <th><b>Message</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->debugBar->get('log') as $_i => $_entry): ?>
+                            <?php
+                            switch ($_entry['priority']) {
+                                case 'emergency':
+                                case 'alert':
+                                    $class = ' class="danger"';
+                                    break;
+                                case 'critical':
+                                case 'error':
+                                    $class = ' class="warning"';
+                                    break;
+                                case 'warning':
+                                case 'notice':
+                                    $class = ' class="info"';
+                                    break;
+                                case 'info':
+                                case 'debug':
+                                default:
+                                    $class = null;
+                                    break;
+                            }
+                            ?>
+                            <tr<?php echo $class; ?>>
+                                <td width="1"><?php echo $_i + 1; ?></td>
+                                <td width="1"><?php echo $_entry['priority']; ?></td>
+                                <td><?php echo $_entry['message']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     <?php if ($this->debugBar->get('exception')): ?>
         <!-- Exception -->
         <div class="sf-toolbar-block">
             <div class="sf-toolbar-icon">
                 <a href="#">
-                    <img width="15" height="28" alt="Logs" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAA4klEQVQ4y2P4//8/AyWYYXgYwOPp6Xnc3t7+P7EYpB6k7+zZs2ADNEjRjIwDAgKWgAywIUfz8+fPVzg7O/8AGeCATQEQnAfi/SAah/wcV1dXvAYUgORANA75ehcXl+/4DHAABRIe+ZrhbgAhTHsDiEgHBA0glA6GfSDiw5mZma+A+sphBlhVVFQ88vHx+Xfu3Ll7QP5haOjjwtuAuGHv3r3NIMNABqh8+/atsaur666vr+9XUlwSHx//AGQANxCbAnEWyGQicRMQ9wBxIQM0qjiBWAFqkB00/glhayBWHwb1AgB38EJsUtxtWwAAAABJRU5ErkJggg==">
+                    <img width="15" height="28" alt="Exceptions" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAA4klEQVQ4y2P4//8/AyWYYXgYwOPp6Xnc3t7+P7EYpB6k7+zZs2ADNEjRjIwDAgKWgAywIUfz8+fPVzg7O/8AGeCATQEQnAfi/SAah/wcV1dXvAYUgORANA75ehcXl+/4DHAABRIe+ZrhbgAhTHsDiEgHBA0glA6GfSDiw5mZma+A+sphBlhVVFQ88vHx+Xfu3Ll7QP5haOjjwtuAuGHv3r3NIMNABqh8+/atsaur666vr+9XUlwSHx//AGQANxCbAnEWyGQicRMQ9wBxIQM0qjiBWAFqkB00/glhayBWHwb1AgB38EJsUtxtWwAAAABJRU5ErkJggg==">
                     <span class="sf-toolbar-status sf-toolbar-status-red"><strong>!</strong></span>
                 </a>
             </div>
@@ -242,10 +294,10 @@
             <a href="#">
                 <img width="20" height="28" alt="Database" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQRJREFUeNpi/P//PwM1ARMDlcGogZQDlpMnT7pxc3NbA9nhQKxOpL5rQLwJiPeBsI6Ozl+YBOOOHTv+AOllQNwtLS39F2owKYZ/gRq8G4i3ggxEToggWzvc3d2Pk+1lNL4fFAs6ODi8JzdS7mMRVyDVoAMHDsANdAPiOCC+jCQvQKqBQB/BDbwBxK5AHA3E/kB8nKJkA8TMQBwLxaBIKQbi70AvTADSBiSadwFXpCikpKQU8PDwkGTaly9fHFigkaKIJid4584dkiMFFI6jkTJII0WVmpHCAixZQEXWYhDeuXMnyLsVlEQKI45qFBQZ8eRECi4DBaAlDqle/8A48ip6gAADANdQY88Uc0oGAAAAAElFTkSuQmCC">
                 <?php
-                
+
                 $invalid = $this->debugBar->get('db.invalid');
                 $valid = $this->debugBar->get('db.count');
-                
+
                 ?>
                 <span class="sf-toolbar-status sf-toolbar-status-green">
                     <?= $valid ?>
@@ -278,7 +330,7 @@
                 </thead>
                 <tbody>
                 <?php
-                
+
                 $queries = $this->debugBar->get('db.queries');
                 $countQueries = 1;
                 foreach($queries as $query) {
@@ -291,7 +343,7 @@
                     <td>
                     <?php
                         $fields = $s['query']['fields'];
-                        
+
                         if (empty($fields)) {
                             echo '<i>all</i>';
                         } else {
@@ -350,7 +402,7 @@
 
 					<span id="explain<?= $countQueries ?>" class="explainToggle">
 					<?php
-					
+
 					$explain = $s['explain'];
 
 					var_dump($explain);
@@ -704,5 +756,98 @@ span.explainToggle {
     .sf-toolbar-block .sf-toolbar-icon > * > .sf-toolbar-info-piece-additional-detail {
         display: none;
     }
+}
+
+/* Twitter Bootstrap 3 */
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td {
+  background-color: #d0e9c6;
+  border-color: #c9e2b3;
+}
+
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.table-hover > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td {
+  background-color: #ebcccc;
+  border-color: #e6c1c7;
+}
+
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+}
+
+.table-hover > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td {
+  background-color: #faf2cc;
+  border-color: #f8e5be;
+}
+
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+  background-color: #F0F7FD;
+  border-color: #D0E3F0;
+}
+
+.table-hover > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td {
+  background-color: #D9EDF7;
+  border-color: #BCE8F1;
 }
 </style>

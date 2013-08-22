@@ -7,6 +7,7 @@ use lithium\core\Libraries;
 use lithium\action\Request;
 use lithium\action\Controller;
 use lithium\action\Response;
+use lithium\analysis\Logger;
 use lithium\storage\Session;
 use lithium\security\Auth;
 use lithium\data\Connections;
@@ -62,6 +63,8 @@ class Debugger extends \lithium\core\StaticObject
         'session.started'   => false,
         'auth'              => false,
         'auth.id'           => 'anon',
+        'log'               => array(),
+        'log.count'         => 0,
     );
 
     public static function init()
@@ -75,6 +78,7 @@ class Debugger extends \lithium\core\StaticObject
 
         static::push('events', array('name' => 'initialize', 'time' => 0));
 
+        static::initLogger();
         static::initDispatcher();
         static::initMedia();
         static::initConnections();
@@ -92,6 +96,7 @@ class Debugger extends \lithium\core\StaticObject
         static::$_data['runtime']      = static::$_data['end'] - static::$_data['start'];
         static::$_data['memory.end']   = memory_get_usage(true);
         static::$_data['memory.usage'] = memory_get_peak_usage(true);
+        static::$_data['log.count']    = count(static::$_data['log']);
 
         if (!Environment::is('production') && static::$_view) {
             try {
@@ -101,6 +106,14 @@ class Debugger extends \lithium\core\StaticObject
                 echo $view->render(array('element' => 'debug_bar'), array(), array('library' => 'li3_debug'));
             }
         }
+    }
+
+    public static function initLogger()
+    {
+        Logger::applyFilter('write', function ($self, $params, $chain) {
+            static::$_data['log'][] = array('priority' => $params['priority'], 'message' => $params['message']);
+            return $chain->next($self, $params, $chain);
+        });
     }
 
     public static function initDispatcher()
