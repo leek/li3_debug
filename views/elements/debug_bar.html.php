@@ -26,7 +26,6 @@
             <span>
                 <a href="http://lithify.me/">
                     <img width="26" height="28" alt="Lithium" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAEJGlDQ1BJQ0MgUHJvZmlsZQAAOBGFVd9v21QUPolvUqQWPyBYR4eKxa9VU1u5GxqtxgZJk6XtShal6dgqJOQ6N4mpGwfb6baqT3uBNwb8AUDZAw9IPCENBmJ72fbAtElThyqqSUh76MQPISbtBVXhu3ZiJ1PEXPX6yznfOec7517bRD1fabWaGVWIlquunc8klZOnFpSeTYrSs9RLA9Sr6U4tkcvNEi7BFffO6+EdigjL7ZHu/k72I796i9zRiSJPwG4VHX0Z+AxRzNRrtksUvwf7+Gm3BtzzHPDTNgQCqwKXfZwSeNHHJz1OIT8JjtAq6xWtCLwGPLzYZi+3YV8DGMiT4VVuG7oiZpGzrZJhcs/hL49xtzH/Dy6bdfTsXYNY+5yluWO4D4neK/ZUvok/17X0HPBLsF+vuUlhfwX4j/rSfAJ4H1H0qZJ9dN7nR19frRTeBt4Fe9FwpwtN+2p1MXscGLHR9SXrmMgjONd1ZxKzpBeA71b4tNhj6JGoyFNp4GHgwUp9qplfmnFW5oTdy7NamcwCI49kv6fN5IAHgD+0rbyoBc3SOjczohbyS1drbq6pQdqumllRC/0ymTtej8gpbbuVwpQfyw66dqEZyxZKxtHpJn+tZnpnEdrYBbueF9qQn93S7HQGGHnYP7w6L+YGHNtd1FJitqPAR+hERCNOFi1i1alKO6RQnjKUxL1GNjwlMsiEhcPLYTEiT9ISbN15OY/jx4SMshe9LaJRpTvHr3C/ybFYP1PZAfwfYrPsMBtnE6SwN9ib7AhLwTrBDgUKcm06FSrTfSj187xPdVQWOk5Q8vxAfSiIUc7Z7xr6zY/+hpqwSyv0I0/QMTRb7RMgBxNodTfSPqdraz/sDjzKBrv4zu2+a2t0/HHzjd2Lbcc2sG7GtsL42K+xLfxtUgI7YHqKlqHK8HbCCXgjHT1cAdMlDetv4FnQ2lLasaOl6vmB0CMmwT/IPszSueHQqv6i/qluqF+oF9TfO2qEGTumJH0qfSv9KH0nfS/9TIp0Wboi/SRdlb6RLgU5u++9nyXYe69fYRPdil1o1WufNSdTTsp75BfllPy8/LI8G7AUuV8ek6fkvfDsCfbNDP0dvRh0CrNqTbV7LfEEGDQPJQadBtfGVMWEq3QWWdufk6ZSNsjG2PQjp3ZcnOWWing6noonSInvi0/Ex+IzAreevPhe+CawpgP1/pMTMDo64G0sTCXIM+KdOnFWRfQKdJvQzV1+Bt8OokmrdtY2yhVX2a+qrykJfMq4Ml3VR4cVzTQVz+UoNne4vcKLoyS+gyKO6EHe+75Fdt0Mbe5bRIf/wjvrVmhbqBN97RD1vxrahvBOfOYzoosH9bq94uejSOQGkVM6sN/7HelL4t10t9F4gPdVzydEOx83Gv+uNxo7XyL/FtFl8z9ZAHF4bBsrEwAAAAlwSFlzAAALEwAACxMBAJqcGAAAB/BJREFUSMedlmtsHUcVgL8zs9dvx6/aNw52YidxWkOAVrilRVEShzyQKgqCpj/yp0JBtEQgkFrBL1roH5Q+eD9KkVB/oBa1PIRUiaa02OTRkhIkoE2aNM2jruWGOK597eu9d3dn5vDD17euk9KKszq7syvN+eY85swKS0RVZXR01A4PD7vKuyWdGyinvtt7yTU2yDQ5c16keXLpvKKezZdp6IuSXEtmQ5pEyUQPPacRFEBHNJJhcUvnyNvQbxuRexVEVUv9L08Uv/zSvLtlrBTWz1JjnRfqkpR88NMbmuzRj63P/awxjXKXjpp90aloqG6itqW+aMFA1pJmYZ077YeyPxQ3Fh/ukZ5xRQ2KiohWwapqRCQAjE1O3vX0pey7h21z7u+FmMlSQpZ5CpkoJRFKhpukjs8E4VNn2uh7ypC9CBYlB2pRyWGIADZBfFs5TnaX7m7vbv/5YlRFRGVxAPDKhcmHHys33PHTiSn68Fm7MUYDJvOQZuDLhrSMdr2kYeXzNaY9jrhF68O15Toj8yq5gmAvgjgwSDCIj6CGr8LMV2Yearu67W5FBYXotiefNIA/9ebkg4+Umu54aPxCtqvW2BpMTlBSBS8gKmRW6RgX6TljTUseGjPlxVJiWi8ZBuIaVAFXDaRVsA718mPR1rj1rsK5wqz0y336pFoByGamdn5/KjrwjfHpsLUWsYI0G6gRKDmIHcRe4AJ0H4IViWVFEtGWWtqcpaMQsfU/9bS/ZWAcLIJU8JUiCiBGv+OZu6fwiQ7peMEAPDuVfuuX0xkfMhJiRbxCqlAO4BQ8EALUjAVCgICgHpwHTYXMwUTw4BZAynIRA2TRvRZ/INwDYDQtXH901m06XSgQGWwaIFGYDzDnIQ6QIri5QJgOeFF8FnAukKVKUg5oSZkrKeWivr1NFndL5a5oNM0s2UG3c07nBqNXJpNtp0IOQskl3kbGLATGVcKkfiHHacGTS5TU15CmNaTlHC62uHmLjyGLA0kx0Ii9kscEnGSkvvalWhufjbdGF8vZNW+UPCu8w3kDRAQRMnQhU0FRAsWygK+lMU0JfgonCXFkyJlmWpJOojfbiBYAgFnaIgBwC5f6kx4mwjVR2fnWQpIQOYc3C6BgF8rDqKIqJBLRUThHf/EkLeYMtmmS0BBT9I6ZFsN4eycT7dfR/sIOrmM16UJokUqRBQJlEsqkmLcgyqQ1iqBc4z1JlhEAtQGxBkHwYtAA6/51hL7jf6E+lxFsPSFYNDQg6oCE+dxZjnQd4cj2R7nz5Nf43PitWARPwGJIKFGmREIJ22gx1CSmtUZez4tnPk3RLCWkKSFJ8VlGlqYMjP6e7tFfI2IJUQci9YhU8qiKBhBfT2vaTxRq2NO/mx/2PYQCEYaEhJiYUuVyax1Rhz1vNnQ0HtlgHMSxMWmKSxNCUqbkA31/e4a2F5/CteTxqhjxGAOqAdWAD76ijkRjggsMJ9v4Zv5uHm38FQoUmWOeeUqUNCa26YcTWj7S8rxpbm579tp6GcN7o0nJaykmCYGO86doff6PpM1XEbKULE3IModzV1bvPJnPiHWeoWSIL/Xv5QiHcXjmFuAhECQasiebaPqrEZHS5jWdP/niqjZeny745iwhzBdp++dBvHM4H3BZRpKkzM/PUy6XSdOUNE3JsqwKzrIM7z1ZyCodB35z1ePMME2ZEgVmwoovNJP/ZNcPREQNwNoPdD+we1Xj0Y1NtTWvzcdJ56UJ7JmXSU0NWfI2qFgsVuFJklS/L6r3Hu88JV9ifbaeZxoO8BqvMU+c1PbV5Rr21D+X78n/YqFzqVqAnR8d/Ox9gyvPbmyoqz11/kwwxWlS76tGkyQhSRLm5uaI47j6vqjVkHuP8w7rLGdrz3Cc46Gup662/UctL1+9fcOti8dwJCJ+ZGQkEpELqnpTU8Op3z1y5h+bTkxNhZa6JhOcw1qLiCAiqCqqWh0vhtt7/47QW7FwmhBudmbl17ueXbu9/1YRKaiqFREfAQwPDztVzYnIRVW9+Y1j3ed+e368feiqlQEwxhhEpNp1gw8456oLCCEseLq02IwPgGn7dOvM2u39nxeR2QojAxZ+FKpdbUFKxkaTbW1t7cViUUXkih6rahWoqnjvCSFUwYvnQ62pnQLSZQzM8m4uIll3d/fZNWvWEMexLlZslmWkafpOr5bBFis7hECxWNTVq1ezsnvlOREpL2/eZglRR0ZGLMDAwMCBoaEhxsbGMMZctm2Wj73371hELpejWCyyefNmBgcHnwYYGRmxi79Yl3m8devWALB27drHb7zxxreASFXDuzWN5d4vqrU2ANGmTZtm1q1b99hS21cEi0ioVPjFHTt27N+3bx+vvvqqb2xsvCzM1a2zBJqmKa2trYyNjbm9e/eyc+fOB0XkzYrNwP8SVa3m4vDhw3/atWuXAuWBgYHQ29ur+Xxeu7q6tKurSzs7O7Wjo0Pb29s1n89rX19fAMpbtmzRgwcP/vlKNt8LbivP2kOHDo3cfvvtWqnSdNWqVa63tzf09PRUNZ/Pu0rl6p49e3R0dPSgqtYvtfW+ZQlcTp48+cD999+v27ZtW1zAZbplyxbdv3+/njhx4ntL5r4rVN4LLiK+Mt547NixO48fP75jfHx8zezsbC1Ac3Nz2tvbe37wg4PP3XD9DQ+LyL+Xz/2/RFXliSeesEsXo6rrVPXjFV2vqtVGtHv3bvt+cvpfoAp/2kT+mJIAAAAASUVORK5CYII=">
-                    <span>#li3</span>
                 </a>
             </span>
         </div>
@@ -36,7 +35,7 @@
                     Lithium <b>#.#.#</b>
                 </div>
                 <div class="sf-toolbar-info-piece">
-                    <a href="http://lithify.me/docs/lithium" rel="help">Lithium Documentation</a>
+                    <a href="http://lithify.me/docs/lithium" rel="help" target="_blank">Lithium Documentation</a>
                 </div>
             </div>
         </div>
@@ -73,11 +72,7 @@
         <div class="sf-toolbar-icon">
             <span>
                 <img width="21" height="28" alt="Environment" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAcCAMAAAC5xgRsAAAAZlBMVEX///////////////////////////////////////////////////////////////////////////////////////////+ZmZmZmZlISEhJSUmdnZ1HR0fR0dFZWVlpaWlfX18/Pz+puygPAAAAIXRSTlMACwwlJygpLzIzNjs8QEtMUmd6e32AucDBw8fIydTm6u5l8MjvAAAAo0lEQVR42r2P2Q6CMBBFL6XsZRGRfZv//0nbDBNEE19MnJeTc5ILKf58ahiUwzy/AJpIWwREwQnEXRdbGCLjrO+djWRvVMiJcigxB7viGogxDdJpSmHEmCVPS7YczJvgUu+CS30IvtbNYZMvsGVo2mVpG/kbm4auiCpdcC3YPCAhSpAdUzaAn6qPKZtUT6ZSzb4bi2hdo9MQ1nX4ASjfV+/4/Z40pyCHrNTbIgAAAABJRU5ErkJggg==">
-                <span class="sf-toolbar-info-piece-additional-detail">&nbsp;</span>
-                <span class="sf-toolbar-info-piece-additional sf-toolbar-status">&nbsp;</span>
-                <span class="sf-toolbar-info-piece-additional-detail">
-                    <span><?php echo $this->debugBar->get('environment'); ?></span>
-                </span>
+                <?php echo $this->debugBar->get('environment'); ?>
             </span>
         </div>
         <div class="sf-toolbar-info">
@@ -176,58 +171,60 @@
             </div>
         </div>
     </div>
-    <!-- Log -->
-    <div class="sf-toolbar-block">
-        <div class="sf-toolbar-icon">
-            <a href="#">
-                <img width="17" height="28" alt="Logs" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAcCAYAAACH81QkAAAA9klEQVQ4y2P4//8/A6WYYZgZYm9vD8I8QHwAiP+TgP8B8RSYIQJAfBQqcRmI5xCBdwDxV6iebpAh+6CcLUDMCHUZMdgOiN+A9DIgOe8u1EWXCOBdQCwGNWg7zJAvJIYFCO+BGjINZshnMgx5DTWknxJDHkMNmUiqISAvvKTEkC6opnQo/wmphsyAahBCSg54DbkPxAZQjSD+AqhiESA+QWyYHEFKTPFI7AOkBuw2JM3MQLyb3NhZB8QqQLyR0ih+RkQ6mUpJYnsENQSUow+Ta8hbIOaC5mQpkCG/yDDkBtQQeMn2FIg/koBvArEZLAaHY2k/aAwBAP6jtd/ja0xbAAAAAElFTkSuQmCC">
-                <span class="sf-toolbar-status"><strong><?php echo $this->debugBar->get('log.count'); ?></strong></span>
-            </a>
-        </div>
-        <div class="sf-toolbar-info">
-            <div class="sf-toolbar-info-piece">
-                <table width="500" class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th width="1">&nbsp;</th>
-                            <th width="1"><b>Priority</b></th>
-                            <th><b>Message</b></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($this->debugBar->get('log') as $_i => $_entry): ?>
-                            <?php
-                            switch ($_entry['priority']) {
-                                case 'emergency':
-                                case 'alert':
-                                    $class = ' class="danger"';
-                                    break;
-                                case 'critical':
-                                case 'error':
-                                    $class = ' class="warning"';
-                                    break;
-                                case 'warning':
-                                case 'notice':
-                                    $class = ' class="info"';
-                                    break;
-                                case 'info':
-                                case 'debug':
-                                default:
-                                    $class = null;
-                                    break;
-                            }
-                            ?>
-                            <tr<?php echo $class; ?>>
-                                <td width="1"><?php echo $_i + 1; ?></td>
-                                <td width="1"><?php echo $_entry['priority']; ?></td>
-                                <td><?php echo $_entry['message']; ?></td>
+    <?php if ($this->debugBar->get('log.count')): ?>
+        <!-- Log -->
+        <div class="sf-toolbar-block">
+            <div class="sf-toolbar-icon">
+                <a href="#">
+                    <img width="17" height="28" alt="Logs" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAcCAYAAACH81QkAAAA9klEQVQ4y2P4//8/A6WYYZgZYm9vD8I8QHwAiP+TgP8B8RSYIQJAfBQqcRmI5xCBdwDxV6iebpAh+6CcLUDMCHUZMdgOiN+A9DIgOe8u1EWXCOBdQCwGNWg7zJAvJIYFCO+BGjINZshnMgx5DTWknxJDHkMNmUiqISAvvKTEkC6opnQo/wmphsyAahBCSg54DbkPxAZQjSD+AqhiESA+QWyYHEFKTPFI7AOkBuw2JM3MQLyb3NhZB8QqQLyR0ih+RkQ6mUpJYnsENQSUow+Ta8hbIOaC5mQpkCG/yDDkBtQQeMn2FIg/koBvArEZLAaHY2k/aAwBAP6jtd/ja0xbAAAAAElFTkSuQmCC">
+                    <span class="sf-toolbar-status"><strong><?php echo $this->debugBar->get('log.count'); ?></strong></span>
+                </a>
+            </div>
+            <div class="sf-toolbar-info">
+                <div class="sf-toolbar-info-piece">
+                    <table width="500" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th width="1">&nbsp;</th>
+                                <th width="1"><b>Priority</b></th>
+                                <th><b>Message</b></th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($this->debugBar->get('log') as $_i => $_entry): ?>
+                                <?php
+                                switch ($_entry['priority']) {
+                                    case 'emergency':
+                                    case 'alert':
+                                        $class = ' class="danger"';
+                                        break;
+                                    case 'critical':
+                                    case 'error':
+                                        $class = ' class="warning"';
+                                        break;
+                                    case 'warning':
+                                    case 'notice':
+                                        $class = ' class="info"';
+                                        break;
+                                    case 'info':
+                                    case 'debug':
+                                    default:
+                                        $class = null;
+                                        break;
+                                }
+                                ?>
+                                <tr<?php echo $class; ?>>
+                                    <td width="1"><?php echo $_i + 1; ?></td>
+                                    <td width="1"><?php echo $_entry['priority']; ?></td>
+                                    <td><?php echo $_entry['message']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
     <?php if ($this->debugBar->get('exception')): ?>
         <!-- Exception -->
         <div class="sf-toolbar-block">
@@ -239,20 +236,24 @@
             </div>
             <div class="sf-toolbar-info">
                 <div class="sf-toolbar-info-piece">
-                    <b>Code</b>
+                    <b>Exception Code</b>
                     <span class="sf-toolbar-status">
                         <?php echo $this->debugBar->get('exception.code'); ?>
                     </span>
                 </div>
                 <div class="sf-toolbar-info-piece">
-                    <b>Message</b>
+                    <b>Exception</b>
                     <span class="sf-toolbar-status sf-toolbar-status-red">
                         <?php echo $this->debugBar->get('exception.message'); ?>
                     </span>
                 </div>
                 <div class="sf-toolbar-info-piece">
-                    <b>Trace</b>
-                    <span><?php echo $this->debugBar->get('exception.line') . ':' . $this->debugBar->get('exception.file'); ?></span>
+                    <b>Line</b>
+                    <span><?php echo $this->debugBar->get('exception.line'); ?></span>
+                </div>
+                <div class="sf-toolbar-info-piece">
+                    <b>File</b>
+                    <span><?php echo $this->debugBar->get('exception.file'); ?></span>
                 </div>
             </div>
         </div>
