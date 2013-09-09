@@ -343,7 +343,7 @@
                     </td>
                     <td>
                     <?php
-                        $fields = $s['query']['fields'];
+                        $fields = isset($s['query']['fields']) ? $s['query']['fields'] : array();
 
                         if (empty($fields)) {
                             echo '<i>all</i>';
@@ -357,14 +357,18 @@
                     </td>
                     <td>
                     <?php
-                        $conditions = $s['query']['query']['$query'];
+                        $conditions = isset($s['query']['query']['$query']) ? $s['query']['query']['$query'] : array();
 
                         if (empty($conditions)) {
                             echo '<i>none</i>';
                         } else {
                             foreach ($conditions as $key => $val){
-                                if(is_array($val)) {
-                                    $val = join(', <br>', call_user_func_array('array_merge', $val));
+                                if (is_array($val)) {
+                                    try {
+                                        $val = join(', <br>', @call_user_func_array('array_merge', $val));
+                                    } catch (\Exception $e) {
+                                        $val = join(', <br>', $val);
+                                    }
                                 }
                                 echo join(': ', array($key, !empty($val) ? $val : 'null'));
                                 echo "<br>";
@@ -374,7 +378,7 @@
                     </td>
                     <td>
                     <?php
-                        $orderby = $s['query']['query']['$orderby'];
+                        $orderby = isset($s['query']['query']['$orderby']) ? $s['query']['query']['$orderby'] : array();
 
                         if (empty($orderby)) {
                             echo '<i>none</i>';
