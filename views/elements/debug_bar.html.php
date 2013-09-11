@@ -235,25 +235,42 @@
                 </a>
             </div>
             <div class="sf-toolbar-info">
+                <?php if ($type = $this->debugBar->get('exception.type')): ?>
+                    <div class="sf-toolbar-info-piece">
+                        <b>Error</b>
+                        <span class="sf-toolbar-status">
+                            <?php echo strtoupper($type); ?>
+                        </span>
+                    </div>
+                <?php else: ?>
+                    <div class="sf-toolbar-info-piece">
+                        <b>Exception</b>
+                        <span class="sf-toolbar-status">
+                            <?php echo $this->debugBar->get('exception.class'); ?>
+                        </span>
+                    </div>
+                    <div class="sf-toolbar-info-piece">
+                        <b>Code</b>
+                        <span class="sf-toolbar-status">
+                            <?php echo $this->debugBar->get('exception.code'); ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
                 <div class="sf-toolbar-info-piece">
-                    <b>Exception Code</b>
-                    <span class="sf-toolbar-status">
-                        <?php echo $this->debugBar->get('exception.code'); ?>
-                    </span>
-                </div>
-                <div class="sf-toolbar-info-piece">
-                    <b>Exception</b>
+                    <b>Message</b>
                     <span class="sf-toolbar-status sf-toolbar-status-red">
                         <?php echo $this->debugBar->get('exception.message'); ?>
                     </span>
                 </div>
                 <div class="sf-toolbar-info-piece">
-                    <b>Line</b>
-                    <span><?php echo $this->debugBar->get('exception.line'); ?></span>
-                </div>
-                <div class="sf-toolbar-info-piece">
                     <b>File</b>
-                    <span><?php echo $this->debugBar->get('exception.file'); ?></span>
+                    <span>
+                        <?php $file = $this->debugBar->get('exception.file'); ?>
+                        <?php $line = $this->debugBar->get('exception.line'); ?>
+                        <a href="<?php echo $this->debugBar->getEditorHref($file, $line); ?>">
+                            <?php echo $file; ?>:<?php echo $line; ?>
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>
