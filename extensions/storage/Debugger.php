@@ -67,6 +67,27 @@ class Debugger extends \lithium\core\StaticObject
         'log.count'         => 0,
     );
 
+    /**
+     * @var array
+     */
+    protected static $_errors = array(
+        E_NOTICE            => 'Notice',
+        E_STRICT            => 'Strict',
+        E_USER_WARNING      => 'User Warning',
+        E_USER_NOTICE       => 'User Notice',
+        E_DEPRECATED        => 'Deprecated',
+        E_WARNING           => 'Warning',
+        E_USER_DEPRECATED   => 'User Deprecated',
+        E_CORE_WARNING      => 'Core Warning',
+        E_COMPILE_WARNING   => 'Compile Warning',
+        E_RECOVERABLE_ERROR => 'Recoverable Error',
+        E_ERROR             => 'Error',
+        E_PARSE             => 'Parse',
+        E_COMPILE_ERROR     => 'Compile Error',
+        E_CORE_ERROR        => 'Core Error',
+        E_USER_ERROR        => 'User Error',
+    );
+
     public static function init()
     {
         static::registerExceptionHandler();
@@ -289,10 +310,16 @@ class Debugger extends \lithium\core\StaticObject
     public static function setException(\Exception $exception)
     {
         static::$_data['exception']         = true;
+        static::$_data['exception.class']   = get_class($exception);
         static::$_data['exception.message'] = $exception->getMessage();
         static::$_data['exception.code']    = $exception->getCode();
         static::$_data['exception.file']    = $exception->getFile();
         static::$_data['exception.line']    = $exception->getLine();
+        static::$_data['exception.type']    = null;
+
+        if (isset(static::$_errors[$exception->getCode()])) {
+            static::$_data['exception.type'] = static::$_errors[$exception->getCode()];
+        }
     }
 
     public static function get($key)
@@ -343,21 +370,22 @@ class Debugger extends \lithium\core\StaticObject
             return $result;
         });
 
-        $controller->applyFilter('redirect', function($self, $params, $chain) use ($options) {
-            // d($params);
-            // $options =& $params['options'];
-            // if (isset($params['options']['message'])) {
-            //     DebugBar::write($params['options']['message']);
-            //     unset($params['options']['message']);
-            // }
-            return $chain->next($self, $params, $chain);
-        });
-
         return $controller;
     }
 
+    /**
+     * @param int $errno
+     * @param string $errstr
+     * @param string $errfile
+     * @param int $errline
+     * @param array $errcontext
+     */
     public static function handleError($errno, $errstr, $errfile = null, $errline = 0, array $errcontext = array())
     {
+        if (!($errno & error_reporting())) {
+            return;
+        }
+
         $exception = new \ErrorException($errstr, $errno, 0, $errfile, $errline);
         static::handleException($exception);
     }
