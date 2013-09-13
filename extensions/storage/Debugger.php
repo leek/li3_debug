@@ -211,7 +211,11 @@ class Debugger extends \lithium\core\StaticObject
                 $queries         = array();
                 $data['start']   = microtime(true);
                 $data['memory']  = memory_get_usage(true);
-                $data['name']    = $query->model() . '->' . $query->type();
+                if (is_object($query) && method_exists($query, 'model')) {
+                    $data['name'] = $query->model() . '::' . $query->type();
+                } else {
+                    $data['name'] = '?';
+                }
                 if ($result = $chain->next($self, $params, $chain)) {
                     switch (true) {
                         case method_exists($result, 'data'):
