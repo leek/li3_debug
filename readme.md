@@ -1,4 +1,4 @@
-# li3_debug
+# li3_debug [![Maintenance](https://img.shields.io/badge/still_maintained-no-red.svg?style=flat)]()
 
 A port of [Symfony2](http://symfony.com)'s debug menu to [Lithium](http://lithify.me). Thanks to [@marcghorayeb](https://github.com/marcghorayeb) for a great starting point.
 
